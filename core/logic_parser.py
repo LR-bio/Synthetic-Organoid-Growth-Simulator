@@ -1,15 +1,19 @@
 ### BioLogic: A Synthetic Biology Logic Compiler
 # Converts Boolean logic circuits into synthetic gene circuits using repressors/promoters
 
-# core/logic_parser.py
+# core/logic_parser.py additions/updates
+
 class LogicGate:
     def __init__(self, gate_type, inputs):
         self.gate_type = gate_type.upper()
-        self.inputs = inputs  # List of input gate names or signals
+        if self.gate_type not in {"AND", "OR", "NOT", "NAND", "XOR"}:
+            raise ValueError(f"Unsupported gate type: {self.gate_type}")
+        if not inputs or (self.gate_type != "NOT" and len(inputs) < 2):
+            raise ValueError(f"{self.gate_type} gate requires inputs: {inputs}")
+        if self.gate_type == "NOT" and len(inputs) != 1:
+            raise ValueError("NOT gate requires exactly one input")
+        self.inputs = inputs
         self.output = None
-
-    def __repr__(self):
-        return f"{self.gate_type}({', '.join(self.inputs)}) -> {self.output}"
 
 
 class LogicCircuit:
