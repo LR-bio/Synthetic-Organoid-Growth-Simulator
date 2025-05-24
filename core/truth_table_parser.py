@@ -26,3 +26,14 @@ def parse_truth_table(filepath):
                 # For demo, just add the AND gate
                 circuit.add_gate("AND", and_inputs)
         return circuit
+
+
+
+# Example:
+from core.truth_table_parser import parse_truth_table
+
+circuit = parse_truth_table("truth_table.csv")
+for part in circuit.generate_genetic_circuit():
+    print(part)
+
+
