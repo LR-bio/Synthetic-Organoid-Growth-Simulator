@@ -15,5 +15,20 @@ class TestLogicCircuit(unittest.TestCase):
         parts = circuit.generate_genetic_circuit()
         self.assertIn("Promoter(A)", parts[0])
 
+    def test_invalid_gate_type():
+        from core.logic_parser import LogicGate
+        import pytest
+        with pytest.raises(ValueError):
+        LogicGate("FOO", ["A", "B"])
+
+    def test_invalid_inputs_for_gate():
+        from core.logic_parser import LogicGate
+        import pytest
+        with pytest.raises(ValueError):
+            LogicGate("AND", [])
+        with pytest.raises(ValueError):
+            LogicGate("NOT", ["A", "B"])
+
+
 if __name__ == "__main__":
     unittest.main()
