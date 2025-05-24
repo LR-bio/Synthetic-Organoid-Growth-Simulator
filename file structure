@@ -1,0 +1,19 @@
+BioLogic-Circuit-Designer/
+├── app.py                          # GUI
+├── core/                           # Core logic & features
+│   ├── __init__.py
+│   ├── logic_parser.py             # Logic gates and circuit generation
+│   ├── visualize.py                # Draw circuit graph
+│   ├── sbol_export.py              # Export to SBOL XML
+│   ├── simulation.py               # Simple biological expression model
+│   └── truth_table_parser.py       # Generate logic circuit from truth table
+├── tests/                          # Unit tests
+│   ├── __init__.py
+│   └── test_logic_parser.py        # Input validation and logic gate tests
+├── examples/                       # Usage examples
+│   └── half_adder.py
+├── .github/
+│   └── workflows/
+│       └── python-app.yml          # GitHub Actions CI pipeline
+├── README.md                       # Project description & usage
+├── LICENSE                         # MIT License
