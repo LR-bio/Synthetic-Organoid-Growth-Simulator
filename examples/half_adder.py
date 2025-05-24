@@ -17,3 +17,8 @@ print("\nExport to GenBank:")
 print(circuit.export_to_genbank())
 
 draw_logic_circuit(circuit)
+
+from core.sbol_export import export_sbol
+
+filename = export_sbol(circuit)
+print(f"SBOL file saved as {filename}")
